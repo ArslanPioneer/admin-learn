@@ -35,14 +35,16 @@ const myRouter= new Router({
         name:'home',
         component:getComponent('home','index'),
         meta:{title:'首页'}
+      },
+      {
+        path:'/table',
+        component:getComponent('table','index'),
+        name:'table',
+        meta:{title:'列表'},
       }]
     },
-    {
-      path:'/icon',
-      component:getComponent('icons','index'),
-      name:'icon',
-      meta:{title:'自定义图标'},
-    }
+   
+    
   ]
 });
 
