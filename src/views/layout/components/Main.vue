@@ -17,14 +17,25 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+// .container {
+//   min-height: calc(100vh - 50px);
+//   position: relative;
+//   overflow: hidden;
+//   background: #f0f0f0;
+//   width: 100%;
+//   .contents{
+//     height: 100%;
+//     -webkit-box-sizing: border-box;
+//     box-sizing: border-box;
+//   }
+// }
 .container {
   min-height: calc(100vh - 50px);
   position: relative;
   overflow: hidden;
-  // background: #f0f0f0;
+  background: #f0f0f0;
   width: 100%;
   .contents{
-    
     height: 100%;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
