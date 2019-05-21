@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-      <!-- <tags /> -->
+      <tags />
       <div class="contents">
         <transition name="fade-transform" mode="out-in">
             <router-view></router-view>
@@ -9,11 +9,11 @@
     </div>
 </template>
 <script>
-// import Tags from './Tags.vue'
+import Tags from './Tags.vue'
 export default {
-    // components:{
-    //   Tags
-    // }
+    components:{
+      Tags
+    }
 }
 </script>
 <style lang="scss" scoped>

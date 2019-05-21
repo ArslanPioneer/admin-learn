@@ -1,16 +1,27 @@
 <template>
-    <div class="head-container clearfix">
+  <div class="head-container clearfix">
     <div class="header-left">
       <showAside :toggle-click="toggleClick"/>
+
+      <el-breadcrumb separator="/">
+          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+          <el-breadcrumb-item>
+            <a href="/">活动管理</a>
+          </el-breadcrumb-item>
+          <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+          <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+      </el-breadcrumb>
     </div>
+
     <div class="header-right">
       <div class="header-user-con">
+        
         <!-- 全屏显示 -->
         <!-- <div class="btn-fullscreen" @click="handleFullScreen">
           <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
             <i class="el-icon-rank"></i>
           </el-tooltip>
-        </div> -->
+        </div>-->
         <!-- 消息中心 -->
         <!-- <div class="btn-bell">
           <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
@@ -19,7 +30,7 @@
              </router-link>
           </el-tooltip>
           <span class="btn-bell-badge" v-if="message"></span>
-        </div> -->
+        </div>-->
         <!-- 用户名下拉菜单 -->
         <el-dropdown class="avatar-container" trigger="click">
           <div class="avatar-wrapper">
@@ -27,7 +38,8 @@
               src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3266090804,66355162&fm=26&gp=0.jpg"
               class="user-avatar"
             >
-            {{username }}<i class="el-icon-caret-bottom"/>
+            {{username }}
+            <i class="el-icon-caret-bottom"/>
           </div>
           <el-dropdown-menu slot="dropdown" class="user-dropdown">
             <router-link class="inlineBlock" to="/home">
@@ -74,7 +86,7 @@ export default {
     },
     // 用户名下拉菜单选择事件
     logout(command) {
-      this.$store.commit('TAGES_LIST',[])
+      this.$store.commit("TAGES_LIST", []);
       this.$router.push("/login");
     },
     // 全屏事件
@@ -105,7 +117,7 @@ export default {
       this.fullscreen = !this.fullscreen;
     }
   }
-}; 
+};
 </script>
 <style lang="scss" scoped>
 .head-container {
@@ -143,7 +155,7 @@ export default {
   cursor: pointer;
   margin-bottom: 10px;
 }
-.btn-bell{
+.btn-bell {
   position: relative;
   width: 30px;
   height: 30px;

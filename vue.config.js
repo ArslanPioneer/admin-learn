@@ -7,6 +7,7 @@ module.exports = {
         //设置别名
         config.resolve.alias
         .set('@',resolve('src'))
+        .set('@assets', resolve('src/assets'))
     },
     devServer: {
         open:true  //打开浏览器窗口
