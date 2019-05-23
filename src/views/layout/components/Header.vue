@@ -2,20 +2,22 @@
   <div class="head-container clearfix">
     <div class="header-left">
       <showAside :toggle-click="toggleClick"/>
+    </div>
 
+    <div class="breadcrumb">
       <el-breadcrumb separator="/">
-          <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-          <el-breadcrumb-item>
-            <a href="/">活动管理</a>
-          </el-breadcrumb-item>
-          <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-          <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <!-- <el-breadcrumb-item >{{this.$route.meta.title}}</el-breadcrumb-item> -->
+        <el-breadcrumb-item v-for="(item,index) in this.$route.meta"
+          :key="index">
+           {{item.title}}
+        </el-breadcrumb-item>
+        
       </el-breadcrumb>
     </div>
 
     <div class="header-right">
       <div class="header-user-con">
-        
         <!-- 全屏显示 -->
         <!-- <div class="btn-fullscreen" @click="handleFullScreen">
           <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
@@ -69,6 +71,9 @@ export default {
       message: 2,
       username: "zyh"
     };
+  },
+  mounted(){
+    console.log(this.$route)
   },
   computed: {
     isCollapse: {
@@ -127,9 +132,17 @@ export default {
     0 0 3px 0 rgba(0, 0, 0, 0.04);
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 0 3px 0 rgba(0, 0, 0, 0.04);
   border-bottom: 1px solid #f0f0f0;
+  position: relative;
 }
+
 .header-left {
   float: left;
+}
+.breadcrumb {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding-left: 40px;
 }
 .header-right {
   float: right;

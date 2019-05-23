@@ -6,7 +6,7 @@
       @open="handleOpen"
       @close="handleClose"
       :collapse="isCollapse"
-      @select="select"
+ 
       active-text-color="#bdb7ff"
       router
     >

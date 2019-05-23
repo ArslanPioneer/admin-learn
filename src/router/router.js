@@ -2,7 +2,8 @@ import Vue from "vue";
 import Router from "vue-router";
 import store from "../store/store";
 import Home from "../views/Home.vue";
-
+import NProgress from 'nprogress' //进度条
+import 'nprogress/nprogress.css'
 Vue.use(Router);
 
 /**
@@ -34,13 +35,13 @@ const myRouter= new Router({
         path:'/home',
         name:'home',
         component:getComponent('home','index'),
-        meta:{title:'首页'}
+        // meta:{title:'首页'}
       },
       {
         path:'/table',
         component:getComponent('table','index'),
         name:'table',
-        meta:{title:'列表'},
+        meta:[{title:'图标'},{title:'列表'}],
       }]
     },
    
@@ -48,4 +49,19 @@ const myRouter= new Router({
   ]
 });
 
+//判断是否存在token
+myRouter.beforeEach((to,from,next)=>{
+  NProgress.start()
+  if(to.path !== '/login' && !store.state.token) {
+    next('/login')
+    NProgress.done()
+  }
+  else {
+    next()
+  }
+})
+
+myRouter.afterEach(()=>{
+  NProgress.done() //结束Progress
+})
 export default myRouter
